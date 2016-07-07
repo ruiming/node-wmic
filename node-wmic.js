@@ -18,9 +18,9 @@ function wmicFormat(stdout, size) {
         let result = [];
         let one = {};
         let length = stdout.match(/=/g).length;
-        for(let i=0; i<length/size; i++){
+        for(let i=0; i<length/size; i++) {
             one = {};
-            for(let j=0; j<size; j++){
+            for(let j=0; j<size; j++) {
                 let mat = reg.exec(stdout);
                 if(mat != null) {
                     one[mat[1].slice(1)] = mat[2];
@@ -32,14 +32,14 @@ function wmicFormat(stdout, size) {
             resolve(result);
         }
         else    resolve(one);
-        });
+    });
 }
 
 module.exports = {
-    getDisk: function (){
-        return new Promise(function(resolve, reject){
+    disk: function () {
+        return new Promise(function(resolve, reject) {
             exec(cmd.disk, {encoding: 'GB2312'}, (err, stdout, stderr) => {
-                if(err){
+                if(err) {
                     reject(stderr);
                 }
                 else {
@@ -51,10 +51,10 @@ module.exports = {
         });
     },
 
-    getCpu: function (){
+    cpu: function () {
         return new Promise((resolve, reject) => {
             exec(cmd.cpu, (err, stdout, stderr) => {
-                if(err){
+                if(err) {
                     reject(err);
                 }
                 else {
@@ -66,10 +66,10 @@ module.exports = {
         });
     },
 
-    getBaseboard: function () {
+    baseboard: function () {
         return new Promise((resolve, reject) => {
             exec(cmd.baseboard, (err, stdout, stderr) => {
-                if(err){
+                if(err) {
                     reject(err);
                 }
                 else {
@@ -81,7 +81,7 @@ module.exports = {
         })
     },
 
-    getBios: function (){
+    bios: function () {
         return new Promise((resolve, reject) => {
             exec(cmd.bios, {encoding: 'GB2312'}, (err, stdout, stderr) => {
                 if (err) {
@@ -96,7 +96,7 @@ module.exports = {
         })
     },
 
-    getOs: function (){
+    os: function () {
         return new Promise((resolve, reject) => {
             exec(cmd.os, {encoding: 'GB2312'}, (err, stdout, stderr) => {
                 if (err) {
@@ -111,7 +111,7 @@ module.exports = {
         })
     },
 
-    getMemorychip: function (){
+    memorychip: function () {
         return new Promise((resolve, reject) => {
             exec(cmd.memorychip, {encoding: 'GB2312'}, (err, stdout, stderr) => {
                 if (err) {
@@ -126,7 +126,7 @@ module.exports = {
         })
     },
 
-    getDiskDrive: function () {
+    diskdrive: function () {
         return new Promise((resolve, reject) => {
             exec(cmd.diskdrive, {encoding: 'GB2312'}, (err, stdout, stderr) => {
                 if(err) {

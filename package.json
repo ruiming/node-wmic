@@ -1,6 +1,6 @@
 {
   "name": "node-wmic",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Node.js wrapper around the WMIC",
   "main": "node-wmic.js",
   "directories": {
