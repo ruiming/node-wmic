@@ -1,0 +1,29 @@
+{
+  "name": "node-wmic",
+  "version": "1.0.1",
+  "description": "A Node.js wrapper around the WMIC",
+  "main": "node-wmic.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.4.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruiming/node-wmic.git"
+  },
+  "keywords": [
+    "wmic"
+  ],
+  "author": "ruiming",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruiming/node-wmic/issues"
+  },
+  "homepage": "https://github.com/ruiming/node-wmic#readme"
+}
