@@ -31,7 +31,9 @@ function wmicFormat(stdout, size) {
         if(result.length > 1) {
             resolve(result);
         }
-        else    resolve(one);
+        else {
+            resolve(one);
+        }
     });
 }
 
@@ -45,9 +47,9 @@ module.exports = {
                 else {
                     wmicFormat(iconv.decode(stdout, 'GB2312'), 40).then(result => {
                         resolve(result);
-                    })
+                    });
                 }
-            })
+            });
         });
     },
 
@@ -60,7 +62,7 @@ module.exports = {
                 else {
                     wmicFormat(stdout,57).then(result => {
                         resolve(result);
-                    })
+                    });
                 }
             });
         });
@@ -75,10 +77,10 @@ module.exports = {
                 else {
                     wmicFormat(stdout, 29).then(result => {
                         resolve(result);
-                    })
+                    });
                 }
-            })
-        })
+            });
+        });
     },
 
     bios: function () {
@@ -90,10 +92,10 @@ module.exports = {
                 else {
                     wmicFormat(iconv.decode(stdout, 'GB2312'), 31).then(result => {
                         resolve(result);
-                    })
+                    });
                 }
-            })
-        })
+            });
+        });
     },
 
     os: function () {
@@ -105,10 +107,10 @@ module.exports = {
                 else {
                     wmicFormat(iconv.decode(stdout, 'GB2312'), 64).then(result => {
                         resolve(result);
-                    })
+                    });
                 }
-            })
-        })
+            });
+        });
     },
 
     memorychip: function () {
@@ -120,10 +122,10 @@ module.exports = {
                 else {
                     wmicFormat(iconv.decode(stdout, 'GB2312'), 36).then(result => {
                         resolve(result);
-                    })
+                    });
                 }
-            })
-        })
+            });
+        });
     },
 
     diskdrive: function () {
@@ -135,9 +137,9 @@ module.exports = {
                 else {
                     wmicFormat(iconv.decode(stdout, 'GB2312'), 51).then(result => {
                         resolve(result);
-                    })
+                    });
                 }
-            })
-        })
+            });
+        });
     }
 };
