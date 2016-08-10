@@ -28,12 +28,7 @@ function wmicFormat(stdout, size) {
             }
             result.push(one);
         }
-        if(result.length > 1) {
-            resolve(result);
-        }
-        else {
-            resolve(one);
-        }
+        resolve(result);
     });
 }
 
@@ -47,9 +42,9 @@ for (let key in cmd) {
                 } else {
                     wmicFormat(iconv.decode(stdout, 'GB2312'), cmd[key][1]).then(result => {
                         resolve(result);
-                    })
+                    });
                 }
-            })
+            });
         })
     }
 }
