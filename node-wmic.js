@@ -28,7 +28,13 @@ function wmicFormat(stdout, size) {
             }
             result.push(one);
         }
-        resolve(result);
+        // Return object that only has one element all the time, 
+        // otherwise return an array.
+        if([40, 51, 36].indexOf(size) === -1) {
+            resolve(one);
+        } else {
+            resolve(result);
+        }
     });
 }
 

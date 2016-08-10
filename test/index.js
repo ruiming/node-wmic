@@ -11,26 +11,26 @@ describe('Test', () => {
         });
         it('Test cpu', () => {
             return  wmic.cpu().then(result => {
-                assert.equal(result[0].hasOwnProperty('AddressWidth'), true);
-                assert.equal(result[0].hasOwnProperty('VoltageCaps'), true);
+                assert.equal(result.hasOwnProperty('AddressWidth'), true);
+                assert.equal(result.hasOwnProperty('VoltageCaps'), true);
             })
         });
         it('Test baseboard', () => {
             return  wmic.baseboard().then(result => {
-                assert.equal(result[0].hasOwnProperty('Caption'), true);
-                assert.equal(result[0].hasOwnProperty('Width'), true);
+                assert.equal(result.hasOwnProperty('Caption'), true);
+                assert.equal(result.hasOwnProperty('Width'), true);
             })
         });
         it('Test bios', () => {
             return  wmic.bios().then(result => {
-                assert.equal(result[0].hasOwnProperty('BiosCharacteristics'), true);
-                assert.equal(result[0].hasOwnProperty('Version'), true);
+                assert.equal(result.hasOwnProperty('BiosCharacteristics'), true);
+                assert.equal(result.hasOwnProperty('Version'), true);
             })
         });
         it('Test os', () => {
             return  wmic.os().then(result => {
-                assert.equal(result[0].hasOwnProperty('BootDevice'), true);
-                assert.equal(result[0].hasOwnProperty('WindowsDirectory'), true);
+                assert.equal(result.hasOwnProperty('BootDevice'), true);
+                assert.equal(result.hasOwnProperty('WindowsDirectory'), true);
             })
         });
         it('Test memorychip', () => {
