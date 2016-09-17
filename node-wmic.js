@@ -44,7 +44,7 @@ for (let key in cmd) {
         return new Promise((resolve, reject) => {
             exec(cmd[key][0], {encoding: 'GB2312'}, (err, stdout, stderr) => {
                 if(err) {
-                    reject(stedrr);
+                    reject(stderr);
                 } else {
                     wmicFormat(iconv.decode(stdout, 'GB2312'), cmd[key][1]).then(result => {
                         resolve(result);
