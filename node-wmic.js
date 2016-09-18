@@ -1,15 +1,16 @@
 'use strict';
-const exec = require('child_process').exec,
+const execFile = require('child_process').execFile,
     iconv = require('iconv-lite');
+    path = require('path');
 
 const cmd = {
-    'disk': ['wmic logicaldisk get /VALUE', 40],
-    'cpu': ['wmic cpu get /VALUE', 57],
-    'baseboard': ['wmic baseboard get /VALUE', 29],
-    'bios': ['wmic bios get /VALUE', 31],
-    'diskdrive': ['wmic diskdrive get /VALUE', 51],
-    'os': ['wmic os get /VALUE', 64],
-    'memorychip': ['wmic memorychip get /VALUE', 36]
+    'disk': [['logicaldisk', 'get', '/VALUE'], 40],
+    'cpu': [['cpu', 'get', '/VALUE'], 57],
+    'baseboard': [['baseboard', 'get', '/VALUE'], 29],
+    'bios': [['bios', 'get', '/VALUE'], 31],
+    'diskdrive': [['diskdrive', 'get', '/VALUE'], 51],
+    'os': [['os', 'get', '/VALUE'], 64],
+    'memorychip': [['memorychip', 'get', '/VALUE'], 36]
 };
 
 function wmicFormat(stdout, size) {
@@ -42,7 +43,7 @@ let func = [];
 for (let key in cmd) {
     func[key] = () => {
         return new Promise((resolve, reject) => {
-            exec(cmd[key][0], {encoding: 'GB2312'}, (err, stdout, stderr) => {
+            execFile(path.join(process.env.SystemRoot,'System32','wbem', 'WMIC.exe'), cmd[key][0], {encoding: 'GB2312', cwd: path.join(process.env.SystemRoot,'System32','Wbem')},(err, stdout, stderr) => {
                 if(err) {
                     reject(stedrr);
                 } else {
