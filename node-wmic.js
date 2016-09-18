@@ -45,7 +45,7 @@ for (let key in cmd) {
         return new Promise((resolve, reject) => {
             execFile(path.join(process.env.SystemRoot,'System32','wbem', 'WMIC.exe'), cmd[key][0], {encoding: 'GB2312', cwd: path.join(process.env.SystemRoot,'System32','Wbem')},(err, stdout, stderr) => {
                 if(err) {
-                    reject(stedrr);
+                    reject(stderr);
                 } else {
                     wmicFormat(iconv.decode(stdout, 'GB2312'), cmd[key][1]).then(result => {
                         resolve(result);
