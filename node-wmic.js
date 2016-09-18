@@ -1,6 +1,6 @@
 'use strict';
 const execFile = require('child_process').execFile,
-    iconv = require('iconv-lite');
+    iconv = require('iconv-lite'),
     path = require('path');
 
 const cmd = {
