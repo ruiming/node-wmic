@@ -10,7 +10,8 @@ const cmd = {
     'bios': [['bios', 'get', '/VALUE'], 31],
     'diskdrive': [['diskdrive', 'get', '/VALUE'], 51],
     'os': [['os', 'get', '/VALUE'], 64],
-    'memorychip': [['memorychip', 'get', '/VALUE'], 36]
+    'memorychip': [['memorychip', 'get', '/VALUE'], 36],
+    'process': [['process', 'get', '/VALUE'], 40]
 };
 
 function wmicFormat(stdout, size) {
@@ -43,7 +44,7 @@ let func = [];
 for (let key in cmd) {
     func[key] = () => {
         return new Promise((resolve, reject) => {
-            execFile(path.join(process.env.SystemRoot,'System32','wbem', 'WMIC.exe'), cmd[key][0], {encoding: 'GB2312'},(err, stdout, stderr) => {
+            execFile(path.join(process.env.SystemRoot,'System32','wbem', 'WMIC.exe'), cmd[key][0], {encoding: 'GB2312', maxBuffer: 1024 * 500},(err, stdout, stderr) => {
                 if(err) {
                     reject(stderr);
                 } else {
