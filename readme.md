@@ -20,6 +20,7 @@ wmic.bios().then(result => {})
 wmic.os().then(result => {})
 wmic.memorychip().then(result => {})
 wmic.diskdrive().then(result => {})
+wmic.process().then(result => {});
 ```
 
 It will return the message that WMIC can provide.
