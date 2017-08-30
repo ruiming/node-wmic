@@ -11,7 +11,8 @@ const cmd = {
     'diskdrive': [['diskdrive', 'get', '/VALUE'], 51],
     'os': [['os', 'get', '/VALUE'], 64],
     'memorychip': [['memorychip', 'get', '/VALUE'], 36],
-    'process': [['process', 'get', '/VALUE'], 40]
+    'process': [['process', 'get', '/VALUE'], 40],
+    'desktopmonitor': [['desktopmonitor', 'get', '/VALUE'], 28]
 };
 
 function wmicFormat(stdout, size) {
@@ -32,7 +33,7 @@ function wmicFormat(stdout, size) {
         }
         // Return object that only has one element all the time, 
         // otherwise return an array.
-        if([40, 51, 36].indexOf(size) === -1) {
+        if([28, 40, 51, 36].indexOf(size) === -1) {
             resolve(one);
         } else {
             resolve(result);
