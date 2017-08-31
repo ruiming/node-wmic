@@ -45,5 +45,11 @@ describe('Test', () => {
                 assert.equal(result[0].hasOwnProperty('TracksPerCylinder'), true);
             })
         });
+        it('Test desktopmonitor', () => {
+            return wmic.desktopmonitor().then(result => {
+                assert.equal(result[0].hasOwnProperty('Availability'), true);
+                assert.equal(result[0].hasOwnProperty('SystemName'), true);
+            })
+        });
     });
 });

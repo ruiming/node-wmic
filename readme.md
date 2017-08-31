@@ -21,6 +21,7 @@ wmic.os().then(result => {})
 wmic.memorychip().then(result => {})
 wmic.diskdrive().then(result => {})
 wmic.process().then(result => {});
+wmic.desktopmonitor().then(result => {});
 ```
 
 It will return the message that WMIC can provide.
