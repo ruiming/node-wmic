@@ -51,5 +51,11 @@ describe('Test', () => {
                 assert.equal(result[0].hasOwnProperty('SystemName'), true);
             })
         });
+        it('Test qfe', () => {
+            return wmic.qfe().then(result => {
+                assert.equal(result[0].hasOwnProperty('Caption'), true);
+                assert.equal(result[0].hasOwnProperty('Status'), true);
+            })
+        });
     });
 });

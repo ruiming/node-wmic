@@ -12,28 +12,30 @@ const cmd = {
     'os': [['os', 'get', '/VALUE'], 64],
     'memorychip': [['memorychip', 'get', '/VALUE'], 36],
     'process': [['process', 'get', '/VALUE'], 40],
-    'desktopmonitor': [['desktopmonitor', 'get', '/VALUE'], 28]
+    'desktopmonitor': [['desktopmonitor', 'get', '/VALUE'], 28],
+    'qfe': [['qfe', 'get', '/VALUE'], 11]
 };
 
 function wmicFormat(stdout, size) {
     return new Promise((resolve, reject) => {
-        let reg = /([^\r]+)=(.*)\r/g;
+        let reg = /[^\r\n]+/g
         let result = [];
         let one = {};
-        let length = stdout.match(/=/g) && stdout.match(/=/g).length;
+        let length = stdout.match(reg) && stdout.match(reg).length;
         for(let i=0; i<length/size; i++) {
             one = {};
             for(let j=0; j<size; j++) {
                 let mat = reg.exec(stdout);
                 if(mat != null) {
-                    one[mat[1].slice(1)] = mat[2];
+                    let eqPos = mat[0].indexOf('=')
+                    one[mat[0].substring(0,eqPos)] = mat[0].substring(eqPos + 1)
                 }
             }
             result.push(one);
         }
         // Return object that only has one element all the time, 
         // otherwise return an array.
-        if([28, 40, 51, 36].indexOf(size) === -1) {
+        if([11, 28, 40, 51, 36].indexOf(size) === -1) {
             resolve(one);
         } else {
             resolve(result);
