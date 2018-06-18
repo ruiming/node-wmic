@@ -13,7 +13,8 @@ const cmd = {
     'memorychip': [['memorychip', 'get', '/VALUE'], 36],
     'process': [['process', 'get', '/VALUE'], 40],
     'desktopmonitor': [['desktopmonitor', 'get', '/VALUE'], 28],
-    'qfe': [['qfe', 'get', '/VALUE'], 11]
+    'qfe': [['qfe', 'get', '/VALUE'], 11],
+    'videocontroller': [['path', 'win32_VideoController', 'get', '/VALUE'], 59]
 };
 
 function wmicFormat(stdout, size) {
@@ -35,7 +36,7 @@ function wmicFormat(stdout, size) {
         }
         // Return object that only has one element all the time, 
         // otherwise return an array.
-        if([11, 28, 40, 51, 36].indexOf(size) === -1) {
+        if([11, 28, 40, 51, 36, 59].indexOf(size) === -1) {
             resolve(one);
         } else {
             resolve(result);
