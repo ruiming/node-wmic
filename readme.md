@@ -2,6 +2,8 @@
 
 A Node.js wrapper around the WMIC. Transform every WMIC command output to JavaScript array.
 
+Attention, this is the v2 version which support all WMIC command, and is not compatiable with v1 version. For 1.0.0+ version, checkout [v1](https://github.com/ruiming/node-wmic/tree/v1) branch.
+
 ```js
 var wmic = require('node-wmic');
 ```
