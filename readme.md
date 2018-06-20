@@ -1,28 +1,28 @@
 # node-wmic
-A Node.js wrapper around the WMIC.
+
+A Node.js wrapper around the WMIC. Transform every WMIC command output to JavaScript array.
+
 ```js
 var wmic = require('node-wmic');
 ```
 
 ## Install
+
 ```
 npm install node-wmic --save
 ```
 
 ## Example
-Now it only supports the following usage.
 
 ```js
-wmic.disk().then(result => {})
-wmic.cpu().then(result => {})
-wmic.baseboard().then(result => {})
-wmic.bios().then(result => {})
-wmic.os().then(result => {})
-wmic.memorychip().then(result => {})
-wmic.diskdrive().then(result => {})
-wmic.process().then(result => {})
-wmic.desktopmonitor().then(result => {})
-wmic.qfe().then(result => {})
-```
+const wmic = require('node-wmic');
+wmic.CPU().then(([cpu]) => {
+  console.log(cpu.AddressWidth);
+  console.log(cpu.Level);
+});
 
-It will return the message that WMIC can provide.
+wmic.DiskDrive().then(items => {
+  console.log(items.length);
+  console.log(items[0].Description);
+});
+```
